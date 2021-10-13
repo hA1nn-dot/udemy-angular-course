@@ -1,16 +1,28 @@
 <label for="">Server name</label>
+<!-- <input type="text"
+class="form-control"
+(input)="onUpdateServerName($event)"> -->
+<!-- $event is an input object -->
+
 <input type="text"
 class="form-control"
-(input)="onUpdateServerName($event)">
-<p> {{ serverName }} </p>
+[(ngModel)]="userName">
+<p>{{ userName }}</p>
+<!-- <input type="text"
+class="form-control"
+[(ngModel)]="serverName"> -->
+
+<!-- [(ngModel)]="" directiva de atributo pero tambien en two-way-binding -->
+<!-- <p> {{ serverName }} </p> -->
 <hr>
 <button class="btn btn-primary" 
-[disabled]="!allowNewServer"
-(click)="onCreateServer()">Add server</button>
+[disabled]="userName==''"
+(click)="resetUserName()">Add server</button>
 <!-- <p [innerText]="allowNewServer" ></p> -->
-<!-- [property binding] dynamically bind some property -->
-<!-- (event name)="" -->
-<!-- $event is an input object -->
+<!-- [property binding]  -->
+<!-- (event name)="" this is an event binding-->
+<!-- {{ String Interpolation }} -->
+
 <p>{{ serverCreationStatus }}</p>
 <app-server></app-server>
 <app-server></app-server>
