@@ -1,0 +1,31 @@
+<label for="">Server name</label>
+<input type="text"
+class="form-control"
+(input)="onUpdateServerName($event)">
+<!-- $event is an input object -->
+
+<!-- <input type="text"
+class="form-control"
+[(ngModel)]="userName">
+<p>{{ userName }}</p> -->
+<!-- <input type="text"
+class="form-control"
+[(ngModel)]="serverName"> -->
+
+<!-- [(ngModel)]="" directiva de atributo pero tambien en two-way-binding -->
+<p> {{ serverName }} </p>
+<hr>
+<button class="btn btn-primary" 
+[disabled]="!allowNewServer"
+(click)="onCreateServer()">Add server</button>
+<!-- <p [innerText]="allowNewServer" ></p> -->
+<!-- [property binding]  -->
+<!-- (event name)="" this is an event binding-->
+<!-- {{ String Interpolation }} -->
+
+<p *ngIf="serverCreated; else noServer">Server was created! Name is {{ serverName }}</p>
+<ng-template #noServer>
+    <p>No server was created!</p>
+</ng-template>
+<!-- * significa directiva estructural -->
+<app-server *ngFor="let server of servers"></app-server>
